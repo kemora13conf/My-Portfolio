@@ -1,9 +1,38 @@
-@font-face {
-    font-family: 'main';
-    src: url('/assets/fonts/Salernomi-J/9SALERNO.TTF');
+@font-face{
+    font-family: 'Lora';
+    font-style: normal;
+    src: url('../fonts/Lora/Lora-VariableFont_wght.ttf');
 }
+@font-face{
+    font-family: 'Lora-Italic';
+    font-style: italic;
+    src: url('../fonts/Lora/Lora-Italic-VariableFont_wght.ttf');
+}
+@font-face{
+    font-family: 'Montserrat';
+    font-style: normal;
+    src: url('../fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+@font-face{
+    font-family: 'Montserrat-Italic';
+    font-style: italic;
+    src: url('../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf');
+}
+
+@font-face{
+    font-family: 'Poppins';
+    font-style: normal;
+    src: url('../fonts/Poppins/Poppins-VariableFont_wght.ttf');
+}
+@font-face{
+    font-family: 'Poppins-Italic';
+    font-style: italic;
+    src: url('../fonts/Poppins/Poppins-Italic-VariableFont_wght.ttf');
+}
+
 *{
     scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
 }
 
 .header-hidden{

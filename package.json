@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tailwind": "tailwindcss -i ./assets/styles/input.css -o ./assets/styles/styles.css --watch",
+    "tailwind": "tailwindcss -i ./assets/styles/input.css -o ./assets/styles/output.css --watch",
+    "start": "nodemon",
     "dev": "nodemon index.js"
   },
   "author": "",

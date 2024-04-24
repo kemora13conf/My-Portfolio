@@ -2,6 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-.header-shadow{
-    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.1);
+.menu-item {
+  @apply h-full flex items-center justify-center w-[90px] text-primary-500 dark:text-grey-500 text-lg font-['Montserrat'] transition-all duration-300;
+}
+.active-item {
+  @apply font-bold dark:text-light-500;
+}
+.menu-indicator {
+  --index: 0;
+  left: calc(25px + calc(var(--index) * 90px));
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.toggle-label::before {
+  content: "";
+  @apply absolute w-[16px] h-[16px] bg-primary-500 dark:bg-gray-400 rounded-full transition-all duration-300;
+}
+.toggle-label:has(input:checked)::before {
+  @apply transform translate-x-[13px];
+}
+.social-media-link {
+  @apply relative overflow-hidden w-[40px] h-[40px] rounded-full bg-grey-500 dark:bg-primary-500 text-primary-500 dark:text-grey-500 text-lg flex items-center justify-center transition-all duration-300;
+}
+.social-media-link::before {
+  content: "";
+  bottom: -100%;
+  right: -100%;
+  @apply absolute z-0 w-full h-full bg-primary-500 dark:bg-primary-light-500 rounded-full transition-all duration-300;
+}
+.social-media-link:hover::before {
+  bottom: 0;
+  right: 0;
+}
+.social-media-link:hover {
+  @apply text-grey-500 shadow-lg;
+}
+.dowload-cv-button {
+  --x: -5px;
+  --y: -5px;
+  box-shadow: inset var(--x) var(--y) 10px #0000004f;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  @apply bg-secondary-500 text-light-500 rounded-full 
+        absolute -bottom-[25px] flex flex-col items-center justify-center gap-2
+        p-[10px];
+}
+.dowload-cv-button:hover {
+  --x: 5px;
+  --y: 5px;
+}
+
+.transformz{
+  transform: translateZ(150px)
 }

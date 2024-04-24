@@ -2,6 +2,7 @@
 module.exports = {
   content: ["./public/**/*.{html,js,ejs}"],
   mode: "jit",
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -14,7 +15,18 @@ module.exports = {
           600: "#233240",
           700: "#1a2530",
           800: "#121920",
-          900: "#090c10"
+          900: "#090c10",
+        },
+        "primary-light": {
+          100: "#d7dbdf",
+          200: "#b0b8c0",
+          300: "#8894a0",
+          400: "#617181",
+          500: "#394d61",
+          600: "#2e3e4e",
+          700: "#222e3a",
+          800: "#171f27",
+          900: "#0b0f13",
         },
         secondary: {
           100: "#d6eaf8",
@@ -25,7 +37,7 @@ module.exports = {
           600: "#2a7aaf",
           700: "#1f5b83",
           800: "#153d58",
-          900: "#0a1e2c"
+          900: "#0a1e2c",
         },
         light: {
           100: "#fbfcfc",
@@ -36,9 +48,9 @@ module.exports = {
           600: "#bdc0c1",
           700: "#8e9091",
           800: "#5e6060",
-          900: "#2f3030"
+          900: "#2f3030",
         },
-        gray: {
+        grey: {
           100: "#f2f3f4",
           200: "#e5e7e9",
           300: "#d7dbdd",
@@ -47,8 +59,8 @@ module.exports = {
           600: "#979c9f",
           700: "#717577",
           800: "#4c4e50",
-          900: "#262728"
-},
+          900: "#262728",
+        },
         danger: {
           100: "#fadbd8",
           200: "#f5b7b1",
@@ -58,7 +70,7 @@ module.exports = {
           600: "#b93d30",
           700: "#8b2e24",
           800: "#5c1e18",
-          900: "#2e0f0c"
+          900: "#2e0f0c",
         },
         green: {
           100: "#d4efdf",
@@ -69,7 +81,7 @@ module.exports = {
           600: "#1f8b4d",
           700: "#17683a",
           800: "#104626",
-          900: "#082313"
+          900: "#082313",
         },
         orange: {
           100: "#fdebd0",
@@ -80,13 +92,10 @@ module.exports = {
           600: "#c27d0e",
           700: "#925e0b",
           800: "#613e07",
-          900: "#311f04"
+          900: "#311f04",
         },
-        
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/container-queries'),
-  ],
-}
+  plugins: [require("@tailwindcss/container-queries")],
+};

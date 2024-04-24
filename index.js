@@ -13,7 +13,8 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.set('views', path.join(__dirname, 'public'));
 
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Home' });
+  let ASSETS_URL = process.env.ASSETS_URL || 'http://localhost:3000/assets';
+  res.render('index', { title: 'Home', ASSETS_URL });
 });
 
 

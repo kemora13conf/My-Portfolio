@@ -1,6 +1,0 @@
-{
-  "watch": ["**/*"],
-  "ext": "ejs,css,html",
-  "ignore": ["node_modules"],
-  "exec": "npx tailwindcss build -o ./assets/styles/output.css"
-}

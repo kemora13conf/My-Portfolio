@@ -1,10 +1,39 @@
-<header class="w-full flex absolute top-[20px]">
+<header class="max-w-[1440px] w-full flex absolute top-[20px] z-[1000]">
   <div
-    class="max-w-[1280px] w-[calc(100%-40px)] h-[60px] bg-white rounded-[2px] border border-secondary-500 mx-auto header-shadow flex items-center px-[20px]"
+    class="max-w-[1440px] w-[calc(100%-40px)] h-[60px] bg-light-100 dark:bg-primary-500 
+    rounded-[2px] border border-secondary-500 mx-auto flex items-center pl-[20px] pr-[5px] shadow-lg"
   >
-    <div class="font-['Montserrat'] font-extrabold text-primary-500 text-lg">
+    <div class="font-['Montserrat'] font-extrabold text-primary-500 dark:text-light-500 text-lg">
       Abdelghani El Mouak
     </div>
-    
+    <div
+      class="w-fit h-full flex items-center justify-center mx-auto relative overflow-hidden"
+    >
+      <ul class="flex justify-center h-full">
+        <li class="h-full">
+          <a data-index="0" href="#" class="menu-item active-item">Home</a>
+        </li>
+        <li class="">
+          <a data-index="1" href="#" class="menu-item">Project</a>
+        </li>
+        <li class="">
+          <a data-index="2" href="#" class="menu-item">Blog</a>
+        </li>
+        <li class="">
+          <a data-index="3" href="#" class="menu-item">Contact</a>
+        </li>
+        <!-- Indicator -->
+        <div
+          class="w-[45px] h-[40px] rounded-full absolute bg-primary-500 dark:bg-light-500 -bottom-[28px] menu-indicator"
+        ></div>
+      </ul>
+    </div>
+    <%- include('darkmode-button') %>
+
+    <a
+      href="#"
+      class="w-fit h-[50px] font-[Lora] text-light-500 bg-primary-500 dark:bg-primary-light-500 px-[20px] rounded-[2px] border border-secondary-500 text-lg flex items-center"
+      >Contact Me</a
+    >
   </div>
 </header>

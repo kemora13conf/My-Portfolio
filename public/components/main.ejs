@@ -1,144 +1,149 @@
-<div
-  class="w-full h-screen max-h-[700px] bg-light-500 dark:bg-primary-500 relative"
->
-  <!-- blur div -->
-  <div class="w-full h-screen absolute">
-    <div
-      class="w-[200px] h-[200px] rounded-full bg-orange-500 blur-[200px] absolute"
-    ></div>
-    <div
-      class="w-[200px] h-[200px] rounded-full bg-danger-500 blur-[200px] absolute bottom-0 -translate-x-[50%] left-[50%]"
-    ></div>
-    <div
-      class="w-[200px] h-[200px] rounded-full bg-secondary-500 blur-[200px] absolute right-0"
-    ></div>
-  </div>
+<div class="w-full @container/main">
   <div
-    class="w-full h-full max-w-[1280px] mx-auto flex items-end justify-between pl-[40px] pr-[20px] pb-[40px]"
+    class="pt-[50px] @[890px]/main:pt-0 w-full h-fit @[890px]/main:h-screen max-h-[700px] bg-light-500 dark:bg-primary-500 relative"
   >
-    <!-- info -->
-    <div class="w-fit h-fit gap-4 flex flex-col">
-      <div data-aos="fade-up" class="w-fit flex gap-2 items-end">
-        <img
-          src="/assets/icons/hand-emoji.png"
-          alt="Hi from Abdelghani el mouak"
-          width="50px"
-          height="50px"
-        />
-        <h3
-          class="font-light font-['Poppins'] text-primary-500 dark:text-grey-500 text-[20px]"
-        >
-          Hi I'm
-        </h3>
-      </div>
+    <!-- blur div -->
+    <div class="w-full h-screen absolute">
       <div
-        data-aos="fade-up"
-        class="font-['Lora'] font-extrabold text-primary-500 dark:text-light-500 text-5xl my-2"
-      >
-        Abdelghani <br />
-        El Mouak
-      </div>
+        class="w-[200px] h-[200px] rounded-full bg-orange-500 blur-[200px] absolute"
+      ></div>
       <div
-        data-aos="fade-up"
-        class="max-w-[350px] text-primary-500 dark:text-grey-500 text-sm font-light font-['Poppins-light'] mb-[20px]"
-      >
-        Fullstack developer anda diligent student pursuing a Bachelor's in
-        Mobile Application Engineering with a background in Multimedia and Web
-        Design from EST Salé.
-      </div>
-
-      <div class="w-full flex flex-col gap-2">
-        <!-- Follow me on -->
-        <p class="text-primary-500 dark:text-grey-500 font-[Poppins-light]">
-          Follow me
-        </p>
-        <div class="w-fit flex gap-2">
-          <a href="" class="social-media-link">
-            <i class="fab fa-github absolute z-10"></i>
-          </a>
-          <a href="" class="social-media-link">
-            <i class="fab fa-linkedin absolute z-10"></i>
-          </a>
-          <a href="" class="social-media-link">
-            <i class="fab fa-instagram absolute z-10"></i>
-          </a>
-          <a href="" class="social-media-link">
-            <i class="fab fa-facebook absolute z-10"></i>
-          </a>
-        </div>
-      </div>
+        class="w-[200px] h-[200px] rounded-full bg-danger-500 blur-[200px] absolute bottom-0 -translate-x-[50%] left-[50%]"
+      ></div>
+      <div
+        class="w-[200px] h-[200px] rounded-full bg-secondary-500 blur-[200px] absolute right-0"
+      ></div>
     </div>
-
-    <!-- Image -->
     <div
-      class="w-fit h-[300px] mt-auto mb-[50px] flex justify-end items-end relative pt-[50px]"
+      class="w-full h-fit @[890px]/main:h-full max-w-[1280px] mx-auto flex flex-col-reverse px-[20px] @[890px]/main:pl-[40px] pb-[40px]
+      @[890px]/main:flex-row @[890px]/main:items-end @[890px]/main:justify-between"
     >
-      <div
-        class="w-fit absolute -top-[90px] right-[110px] cursor-pointer group transformz"
-      >
-        <svg
-          viewBox="0 0 450 130"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-[450px] h-[130px] fill-grey-500 dark:fill-primary-light-500 transition-all duration-300 group-hover:fill-primary-500 group-hover:dark:fill-secondary-500"
-        >
-          <path
-            d="M25 12.5L0 0.566243V29.4338L25 17.5V12.5ZM431 15H433.5C433.5 13.6193 432.381 12.5 431 12.5V15ZM429.232 128.768C430.209 129.744 431.791 129.744 432.768 128.768L448.678 112.858C449.654 111.882 449.654 110.299 448.678 109.322C447.701 108.346 446.118 108.346 445.142 109.322L431 123.464L416.858 109.322C415.882 108.346 414.299 108.346 413.322 109.322C412.346 110.299 412.346 111.882 413.322 112.858L429.232 128.768ZM22.5 17.5H431V12.5H22.5V17.5ZM428.5 15V127H433.5V15H428.5Z"
+      <!-- info -->
+      <div class="w-fit h-fit gap-4 flex flex-col overflow-hidden">
+        <div data-aos="fade-up" class="w-fit flex gap-2 items-end">
+          <img
+            src="/assets/icons/hand-emoji.png"
+            alt="Hi from Abdelghani el mouak"
+            class="w-[50px] h-[50px] object-contain"
           />
-        </svg>
-        <div
-          class="absolute top-[35px] left-[30px] text-grey-500 dark:text-primary-light-400 transition-all duration-300 group-hover:text-primary-500 group-hover:dark:text-light-500"
-        >
           <h3
-            data-aos="fade-up"
-            class="font-['Poppins-bold'] font-bold text-2xl"
+            class="font-light font-['Poppins'] text-primary-500 dark:text-grey-500 text-[20px]"
           >
-            Frontend Developer
+            Hi I'm
           </h3>
-          <p data-aos="fade-up" class="text-sm w-[300px] font-[Poppins-light]">
-            Using native technologies like Html, css and js or modern frameworks
-            like React.js and Flutter for Mobile App development.
+        </div>
+        <div
+          data-aos="fade-up"
+          class="font-['Lora'] font-extrabold text-primary-500 dark:text-light-500 text-5xl my-2"
+        >
+          Abdelghani <br />
+          El Mouak
+        </div>
+        <div
+          data-aos="fade-up"
+          class="max-w-[350px] text-primary-500 dark:text-grey-500 text-sm font-light font-['Poppins-light'] mb-[20px]"
+        >
+          Fullstack developer anda diligent student pursuing a Bachelor's in
+          Mobile Application Engineering with a background in Multimedia and Web
+          Design from EST Salé.
+        </div>
+
+        <div class="w-full flex flex-col gap-2">
+          <!-- Follow me on -->
+          <p class="text-primary-500 dark:text-grey-500 font-[Poppins-light]">
+            Follow me
           </p>
+          <div class="w-fit flex gap-2">
+            <a href="" class="social-media-link">
+              <i class="fab fa-github absolute z-10"></i>
+            </a>
+            <a href="" class="social-media-link">
+              <i class="fab fa-linkedin absolute z-10"></i>
+            </a>
+            <a href="" class="social-media-link">
+              <i class="fab fa-instagram absolute z-10"></i>
+            </a>
+            <a href="" class="social-media-link">
+              <i class="fab fa-facebook absolute z-10"></i>
+            </a>
+          </div>
         </div>
       </div>
+
+      <!-- Image -->
       <div
-        class="w-fit flex flex-col items-center justify-center gap-3 absolute -bottom-[40px] -left-[150%] cursor-pointer group transformz"
+        class="w-fit @[890px]/main:h-[300px] mt-auto mb-[50px] flex justify-end items-end relative pt-[50px]"
       >
-        <svg
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-[258px] ml-[70%] fill-grey-500 dark:fill-primary-light-500 transition-all duration-300 group-hover:fill-primary-500 group-hover:dark:fill-secondary-500"
-        >
-          <path
-            d="M12.5 117.5L0.566243 142.5L29.4338 142.5L17.5 117.5L12.5 117.5ZM15 18.5V16C14.337 16 13.7011 16.2634 13.2322 16.7322C12.7634 17.2011 12.5 17.837 12.5 18.5L15 18.5ZM257.268 20.2678C258.244 19.2915 258.244 17.7085 257.268 16.7322L241.358 0.82233C240.382 -0.15398 238.799 -0.15398 237.822 0.82233C236.846 1.79864 236.846 3.38155 237.822 4.35786L251.964 18.5L237.822 32.6421C236.846 33.6184 236.846 35.2014 237.822 36.1777C238.799 37.154 240.382 37.154 241.358 36.1777L257.268 20.2678ZM17.5 120L17.5 18.5L12.5 18.5L12.5 120L17.5 120ZM15 21L255.5 21V16L15 16V21Z"
-          />
-        </svg>
         <div
-          class="text-grey-500 dark:text-primary-light-400 transition-all duration-300 group-hover:text-primary-500 group-hover:dark:text-light-500"
+          class="hidden @[890px]/main:flex w-fit absolute -top-[90px] right-[110px] cursor-pointer group transformz"
         >
-          <h3
-            data-aos="fade-up"
-            class="font-['Poppins-bold'] font-bold text-2xl"
+          <svg
+            viewBox="0 0 450 130"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-[450px] h-[130px] fill-grey-500 dark:fill-primary-light-500 transition-all duration-300 group-hover:fill-primary-500 group-hover:dark:fill-secondary-500"
           >
-            Backend Developer
-          </h3>
-          <p class="font-[Poppins-light] text-sm w-[300px]">
-            Using Technologies like NodeJs and Python and frameworks like
-            Express.js Django and flask.
-          </p>
+            <path
+              d="M25 12.5L0 0.566243V29.4338L25 17.5V12.5ZM431 15H433.5C433.5 13.6193 432.381 12.5 431 12.5V15ZM429.232 128.768C430.209 129.744 431.791 129.744 432.768 128.768L448.678 112.858C449.654 111.882 449.654 110.299 448.678 109.322C447.701 108.346 446.118 108.346 445.142 109.322L431 123.464L416.858 109.322C415.882 108.346 414.299 108.346 413.322 109.322C412.346 110.299 412.346 111.882 413.322 112.858L429.232 128.768ZM22.5 17.5H431V12.5H22.5V17.5ZM428.5 15V127H433.5V15H428.5Z"
+            />
+          </svg>
+          <div
+            class="absolute top-[35px] left-[30px] text-grey-500 dark:text-primary-light-400 transition-all duration-300 group-hover:text-primary-500 group-hover:dark:text-light-500"
+          >
+            <h3
+              data-aos="fade-up"
+              class="font-['Poppins-bold'] font-bold text-2xl"
+            >
+              Frontend Developer
+            </h3>
+            <p
+              data-aos="fade-up"
+              class="text-sm w-[300px] font-[Poppins-light]"
+            >
+              Using native technologies like Html, css and js or modern
+              frameworks like React.js and Flutter for Mobile App development.
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="w-fit relative flex justify-center">
-        <img
-          src="/assets/images/Abdelghani-El-Mouak.png"
-          alt="Abdelghani El Mouak"
-          class="w-[234px] h-auto object-contain drop-shadow-2xl"
-        />
-        <!-- rounded blue button contain daownload icon and text "cv" -->
-        <a href="#" class="dowload-cv-button">
-          <i class="fas fa-download"></i>
-          <span class="font-['Montserrat'] font-bold">CV</span>
-        </a>
+        <div
+          class="hidden @[890px]/main:flex w-fit flex-col items-center justify-center gap-3 absolute -bottom-[40px] -left-[150%] cursor-pointer group transformz"
+        >
+          <svg
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-[258px] ml-[70%] fill-grey-500 dark:fill-primary-light-500 transition-all duration-300 group-hover:fill-primary-500 group-hover:dark:fill-secondary-500"
+          >
+            <path
+              d="M12.5 117.5L0.566243 142.5L29.4338 142.5L17.5 117.5L12.5 117.5ZM15 18.5V16C14.337 16 13.7011 16.2634 13.2322 16.7322C12.7634 17.2011 12.5 17.837 12.5 18.5L15 18.5ZM257.268 20.2678C258.244 19.2915 258.244 17.7085 257.268 16.7322L241.358 0.82233C240.382 -0.15398 238.799 -0.15398 237.822 0.82233C236.846 1.79864 236.846 3.38155 237.822 4.35786L251.964 18.5L237.822 32.6421C236.846 33.6184 236.846 35.2014 237.822 36.1777C238.799 37.154 240.382 37.154 241.358 36.1777L257.268 20.2678ZM17.5 120L17.5 18.5L12.5 18.5L12.5 120L17.5 120ZM15 21L255.5 21V16L15 16V21Z"
+            />
+          </svg>
+          <div
+            class="text-grey-500 dark:text-primary-light-400 transition-all duration-300 group-hover:text-primary-500 group-hover:dark:text-light-500"
+          >
+            <h3
+              data-aos="fade-up"
+              class="font-['Poppins-bold'] font-bold text-2xl"
+            >
+              Backend Developer
+            </h3>
+            <p class="font-[Poppins-light] text-sm w-[300px]">
+              Using Technologies like NodeJs and Python and frameworks like
+              Express.js Django and flask.
+            </p>
+          </div>
+        </div>
+        <div class="w-fit relative flex justify-center ">
+          <img
+            src="/assets/images/Abdelghani-El-Mouak.png"
+            alt="Abdelghani El Mouak"
+            class="w-[150px] @[890px]/main:w-[234px] h-auto object-contain drop-shadow-2xl"
+          />
+          <!-- rounded blue button contain daownload icon and text "cv" -->
+          <a href="#" class="dowload-cv-button">
+            <i class="fas fa-download"></i>
+            <span class="font-['Montserrat'] font-bold">CV</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>

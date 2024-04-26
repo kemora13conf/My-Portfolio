@@ -53,3 +53,98 @@
 .transformz{
   transform: translateZ(150px)
 }
+
+.more-button{
+  @apply bg-light-500 text-primary-500 border border-secondary-500 px-6 py-3 rounded-[2px] font-['Poppins-medium'] flex w-fit;
+  @apply dark:bg-primary-light-500 dark:text-light-500
+}
+
+.nav-btn{
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+    background: transparent;
+    cursor: pointer;
+    /* display: flex; */ /* actually this comes from the tailwind that's why it's commented */
+    flex-direction: column;
+    transition: all 300ms ease-in-out;
+    position: relative;
+}
+.nav-btn span{
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 300ms ease-in-out;
+    @apply bg-primary-500 dark:bg-grey-500
+}
+.nav-btn span::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    top: -8px;
+    transition: all 300ms ease-in-out;
+    @apply bg-primary-500 dark:bg-grey-500
+}
+.nav-btn span::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    top: 8px;
+    transition: all 300ms ease-in-out;
+    @apply bg-primary-500 dark:bg-grey-500
+}
+.nav-btn.active{
+    rotate: 90deg;
+}
+.nav-btn.active span{
+    background: transparent;
+}
+.nav-btn.active span::before{
+    top: 0;
+    transform: rotate(45deg);
+}
+.nav-btn.active span::after{
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+@media only screen and (max-width: 576px){
+  ul{
+    background: transparent;
+  }
+  .menu-item {
+    height: 50px;
+    width: 100%;
+    font-size: 1.2rem;
+    justify-content: start;
+    padding-left: 70px;
+  }
+  .active-item {
+    font-weight: bold;
+  }
+  .menu-indicator {
+    all: unset;
+    width: calc(100% + 70px);
+    height: 50px;
+    top: calc(var(--index) * 50px);
+    position: absolute;
+    z-index: 0;
+    @apply bg-[rgba(0,0,0,0.1)] dark:!bg-[rgba(0,0,0,0.1)];
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  .menu-indicator::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    border-radius: 0% 50% 50% 0;
+    position: absolute;
+    @apply bg-primary-500 dark:bg-primary-700;
+  }
+}

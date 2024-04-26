@@ -1,15 +1,21 @@
-<header class="max-w-[1440px] w-full flex absolute top-[20px] z-[1000]">
+<header class="max-w-[1440px] w-full flex fixed z-[1000] @container/header">
   <div
-    class="max-w-[1440px] w-[calc(100%-40px)] h-[60px] bg-light-100 dark:bg-primary-500 
-    rounded-[2px] border border-secondary-500 mx-auto flex items-center pl-[20px] pr-[5px] shadow-lg"
+    class="nav-bar max-w-[1440px] w-full @[560px]/header:w-[calc(100%-40px)] h-fit @[560px]/header:mt-[20px] bg-light-100 dark:bg-primary-500 rounded-[2px] border border-secondary-500 mx-auto flex flex-col pl-[20px] pr-[5px] shadow-lg @[930px]/header:h-[60px] @[930px]/header:flex-row @[930px]/header:items-center "
   >
-    <div class="font-['Montserrat'] font-extrabold text-primary-500 dark:text-light-500 text-lg">
+    <div
+      class="w-fit flex h-[60px] items-center gap-5 whitespace-nowrap @[560px]/header:mb-0 font-['Montserrat'] font-extrabold text-primary-500 dark:text-light-500 text-lg"
+    >
+      <div class="nav-btn @[560px]/header:hidden">
+        <span></span>
+      </div>
       Abdelghani El Mouak
     </div>
     <div
-      class="w-fit h-full flex items-center justify-center mx-auto relative overflow-hidden"
+      class="menu h-0 w-full flex flex-col-reverse -ml-[20px] @[560px]:ml-0 @[560px]/header:h-[60px] @[560px]/header:items-center @[560px]/header:flex-row @[560px]/header:justify-start @[930px]/header:justify-evenly mx-auto relative gap-3 overflow-hidden transition-all duration-300 ease-in-out"
     >
-      <ul class="flex justify-center h-full">
+      <ul
+        class="flex flex-col @[560px]/header:flex-row justify-center h-fit @[560px]/header:h-full @[560px]/header:w-fit relative"
+      >
         <li class="h-full">
           <a data-index="0" href="#" class="menu-item active-item">Home</a>
         </li>
@@ -27,12 +33,12 @@
           class="w-[45px] h-[40px] rounded-full absolute bg-primary-500 dark:bg-light-500 -bottom-[28px] menu-indicator"
         ></div>
       </ul>
+      <%- include('darkmode-button') %>
     </div>
-    <%- include('darkmode-button') %>
 
     <a
       href="#"
-      class="w-fit h-[50px] font-[Lora] text-light-500 bg-primary-500 dark:bg-primary-light-500 px-[20px] rounded-[2px] border border-secondary-500 text-lg flex items-center"
+      class="w-fit h-[50px] hidden @[930px]/header:flex whitespace-nowrap font-[Lora] text-light-500 bg-primary-500 dark:bg-primary-light-500 px-[20px] rounded-[2px] border border-secondary-500 text-lg items-center"
       >Contact Me</a
     >
   </div>

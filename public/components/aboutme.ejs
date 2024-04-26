@@ -1,11 +1,36 @@
-<div
-  class="w-full h-screen max-h-[700px] px-[80px] py-[60px] flex gap-10"
->
-    <img src="/assets/images/desktop.png" alt="">
-    <div class="w-fit px-6 py-3">
-        <h2>About me</h2>
-        <p>
-
+<div class="w-full @container/main">
+  <div class="pl-[10px] pr-[10px] py-[60px] flex flex-col gap-5 @[790px]/main:flex-row @[790px]/main:px-[40px] @[1003px]/main:pl-[80px] @[1003px]/main:gap-10">
+    <img
+      data-aos="fade-up"
+      src="/assets/images/desktop.png"
+      alt=""
+      class="w-full @[790px]/main:max-w-[300px] object-cover"
+    />
+    <div class="w-full relative @[790px]/main:px-6">
+      <div class="w-full h-full flex items-center justify-center absolute z-0">
+        <div
+          class="w-[100px] h-[100px] blur-[160px] @[790px]/main:w-[200px] @[790px]/main:h-[200px] rounded-full bg-orange-500 @[790px]/main:blur-[200px]"
+        ></div>
+      </div>
+      <div class="w-full bg-gradient-to-b from-transparent via-light-500 to-light-500 dark:via-primary-500 dark:to-primary-500 -mt-[250px] px-4 pt-[50px] @[790px]/main:pt-0 @[790px]/main:mt-0 @[790px]/main:px-0">
+        <h2
+          class="font-['Lora'] font-bold text-5xl text-primary-500 dark:text-light-500 m-0"
+          data-aos="fade-up"
+        >
+          About me
+        </h2>
+        <p
+          class="font-[Poppins-light] text-lg text-primary-500 dark:text-grey-500 my-4"
+          data-aos="fade-up"
+        >
+          I am Abdelghani El Mouak, deeply passionate about software
+          development, mastering the latest technologies to craft elegant
+          solutions. Transitioning from multimedia and web design to mobile
+          application engineering, I thrive on challenges and continuous
+          learning, bringing creativity to every project.
         </p>
+        <a href="#" class="more-button" data-aos="fade-up"> More About Me</a>
+      </div>
     </div>
+  </div>
 </div>

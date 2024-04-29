@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+
+::-webkit-scrollbar {
+  width: 20px;
+  height: 30px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 6px solid transparent;
+  border-top-width: 10px;
+  border-bottom-width: 10px;
+  background-clip: content-box;
+  @apply bg-primary-700 
+}
+
 .menu-item {
   @apply h-full flex items-center justify-center w-[90px] text-primary-500 dark:text-grey-500 text-lg font-['Montserrat'] transition-all duration-300;
 }
@@ -113,6 +130,22 @@
 .nav-btn.active span::after{
     top: 0;
     transform: rotate(-45deg);
+}
+
+.label{
+  @apply font-['Poppins-medium'] text-primary-500;
+  @apply dark:text-light-600
+}
+.input, .textarea{
+  @apply text-primary-500 px-[20px] py-[10px] font-light font-['Poppins-light'] outline-none border border-secondary-500 bg-grey-300;
+  @apply dark:bg-primary-light-500 transition-all duration-300
+}
+.input:focus,
+.textarea:focus{
+  @apply border-blue-700
+}
+.textarea{
+  min-height: 150px;
 }
 
 @media only screen and (max-width: 576px){

@@ -1,0 +1,29 @@
+<div class="w-full @container/projects" id="Projects">
+    <div class="w-full pl-[20px] @[890px]/projects:pl-[40px]">
+        <div class="w-full flex-col justify-center items-center gap-10 inline-flex">
+            <div
+                class="w-full h-[50px] flex-col justify-center items-start gap-1 inline-flex"
+            >
+                <div 
+                    class="text-primary-500 dark:text-light-500 text-3xl font-bold font-['Montserrat']"
+                    data-aos="fade-up"
+                >
+                    Projects
+                </div>
+                <div 
+                    class="text-primary-500 dark:text-grey-400 text-base font-['Poppins-light']"
+                    data-aos="fade-up"
+                >
+                    Here are some of my projects that I have worked on.
+                </div>
+            </div>
+            <div class="w-full h-auto flex justify-center items-center gap-10">
+                <div class="w-full flex gap-3 overflow-x-auto scrol">
+                    <% for( let index = 0; index < Projects.length; index++ ) { %> 
+                        <%- include('project', { project: Projects[index], index }) %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

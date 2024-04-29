@@ -35,6 +35,9 @@ navBtn.addEventListener("click", () => {
 // Config the animation in the header menu
 menu_items.forEach((item) => {
   item.addEventListener("click", (e) => {
+    if (navBtn.classList.contains('active')) {
+      navBtn.click()
+    }
     menu_indicator.style.setProperty("--index", item.dataset.index);
     item.classList.add("active-item");
 

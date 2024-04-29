@@ -48,9 +48,12 @@
     src: url('../fonts/Poppins/Poppins-ExtraBold.ttf');
 }
 
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
 
 *{
-    scroll-behavior: smooth;
     font-family: "Poppins", sans-serif;
 }
 

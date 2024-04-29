@@ -19,7 +19,7 @@ if (projs.length === 0) {
     { name: "React.js", logo: "React js.svg" },
     { name: "Vue.js", logo: "Vue js.svg" },
     { name: "Angular.js", logo: "Angular js.svg" },
-    { name: "Express.js", logo: "express.png" },
+    { name: "Express.js", logo: "" },
     { name: "MongoDB", logo: "Mongo db.svg" },
   ];
 

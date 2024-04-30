@@ -4,6 +4,11 @@ import { fileURLToPath } from "url";
 import Database from "./Helpers/Database.js";
 import Technology from "./Models/Technology.js";
 import Project from "./Models/Project.js";
+import Admin from "./Routes/Admin.js";
+import session from "express-session";
+import { SECRET_KEY } from "./Env.js";
+import bodyParser from "body-parser";
+
 
 const app = express();
 const port = 3000;
@@ -49,6 +54,15 @@ if (projs.length === 0) {
 }
 
 app.set("view engine", "ejs");
+app.use(
+  session({
+    secret: SECRET_KEY,
+    resave: true,
+    saveUninitialized: false,
+  })
+);
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 export const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use("/assets", express.static(path.join(__dirname, "assets")));
@@ -59,6 +73,8 @@ app.get("/", async (req, res) => {
   let Projects = await Project.find().populate("technologies");
   res.render("Routes/Portfolio/index", { title: "Home", Projects });
 });
+
+app.use("/admin", Admin);
 
 app.listen(port, () => {
   console.log(`running on port http://localhost:${port}`);

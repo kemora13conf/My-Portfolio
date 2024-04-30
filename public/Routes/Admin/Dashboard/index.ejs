@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/assets/styles/output.css" />
+    <link rel="stylesheet" href="/assets/styles/main.css" />
+    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css" />
+  </head>
+  <body class="bg-light-500 dark:bg-primary-500" <!-- header -->
+    <header class="w-full px-16 py-10">
+      <div class="w-full flex justify-between items-center">
+        <div class="w-[200px] h-[50px] flex items-center gap-5">
+          <div
+            class="text-primary-500 dark:text-light-500 text-lg font-extrabold"
+          >
+            Admin
+          </div>
+        </div>
+        <%- include('../../Portfolio/components/darkmode-button') %>
+        <div class="w-[200px] h-[50px] flex items-center gap-5">
+          <a
+            href="/admin/dashboard"
+            class="text-primary-500 dark:text-light-500"
+            >Dashboard</a
+          >
+          <a href="/admin/logout" class="text-primary-500 dark:text-light-500"
+            >Logout</a
+          >
+        </div>
+      </div>
+      <!-- location -->
+      <div
+        class="w-full flex gap-2 items-center text-primary-500 dark:text-light-500 text-lg mt-5"
+      >
+        <div class="font-['Montserrat']">Dashboard</div>
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </header>
+
+    <!-- main -->
+    <main class="w-full px-16 py-3 flex flex-col gap-3">
+      <div class="w-full flex justify-between items-center">
+        <div class="w-[200px] h-[50px] flex items-end gap-5">
+          <div
+            class="text-primary-500 dark:text-light-500 text-lg font-extrabold"
+          >
+            Projects
+          </div>
+        </div>
+        <!-- /projects/add -->
+        <a
+          href="/admin/projects/add"
+          class="border border-secondary-500 px-6 py-2 bg-light-500 dark:bg-primary-600 text-primary-500 dark:text-light-500"
+          >Add Project</a
+        >
+      </div>
+
+      <!-- projects -->
+      <div class="relative overflow-x-auto">
+        <table
+          class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+        >
+          <thead
+            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+          >
+            <tr>
+              <th scope="col" class="px-6 py-3">Name</th>
+              <th scope="col" class="px-6 py-3">Description</th>
+              <th scope="col" class="px-6 py-3">Image</th>
+              <th scope="col" class="px-6 py-3">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for( let index = 0; index < Projects.length; index++ ) { %>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th
+                    scope="row"
+                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                    <%= Projects[index].name %>
+                </th>
+                <td class="px-6 py-4"><%= Projects[index].description %></td>
+                <td class="px-6 py-4">
+                    <img
+                    src="/assets/Projects-images/<%= Projects[index].image %>"
+                    alt="<%= Projects[index].name %>"
+                    class="w-[50px] h-[50px] object-contain"
+                    />
+                </td>
+                <td class="px-6 py-4">
+                    <a
+                    href="/admin/projects/edit/<%= Projects[index]._id %>"
+                    class="text-primary-500 dark:text-light-500"
+                    >Edit</a
+                    >
+                    <a
+                    href="/admin/projects/delete/<%= Projects[index]._id %>"
+                    class="text-danger-500 dark:text-danger-500"
+                    >Delete</a
+                    >
+                </td>
+                </tr>
+            <% } %>
+
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <script defer>
+      const darkmodeButton = document.querySelector("#toggle-darkmode");
+      const darkmode = localStorage.getItem("theme");
+      const html = document.querySelector("html");
+      if (darkmode === "dark") {
+        darkmodeButton.checked = true;
+        html.classList.add("dark");
+      } else {
+        darkmodeButton.checked = false;
+        html.classList.remove("dark");
+      }
+
+      darkmodeButton.addEventListener("change", (e) => {
+        if (e.target.checked) {
+          html.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          html.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        }
+      });
+    </script>
+  </body>
+</html>

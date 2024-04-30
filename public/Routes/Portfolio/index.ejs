@@ -7,7 +7,35 @@
     <%- include('components/header') %> 
     <%- include('components/main') %> 
     <%- include('components/aboutme') %> 
+    <%- include('components/skills') %> 
     <%- include('components/projects', { Projects }) %>
+
+    <!-- blog is coming soon -->
+    <div class="w-full h-[200px] flex my-[20px] mb-[50px]" id="Blog">
+      <div class="w-full max-w-[720px] relative h-[200px] mx-auto overflow-hidden shadow-md">
+        <div class="w-full h-[200px] absolute z-10 flex justify-between items-center">
+          <div class="w-[100px] h-[100px] rounded-full bg-primary-500 self-end"></div>
+          <div class="w-[100px] h-[100px] rounded-full bg-orange-500 self-start"></div>
+          <!-- <div class="w-[100px] h-[100px] rounded-full bg-grey-500 self-end"></div> -->
+          <div class="w-[100px] h-[100px] rounded-full bg-secondary-500 self-end"></div>
+          <!-- <div class="w-[100px] h-[100px] rounded-full bg-light-500 self-end"></div> -->
+          <div class="w-[100px] h-[100px] rounded-full bg-danger-500 self-start"></div>
+        </div>
+        <div class="w-full h-[200px] absolute z-20 flex flex-col font-['Montserrat'] text-primary-500 dark:text-light-500 justify-center items-center backdrop-blur-[70px] rounded-md">
+          <h2 class="text-2xl font-bold">
+            Blog is coming soon
+          </h2>
+          <p>
+            I'm currently working on my blog, it will be available soon.
+          </p>
+          <!-- stay tuned -->
+          <p class="text-sm font-light">
+            Stay tuned
+          </p>
+        </div>
+      </div>
+    </div>
+
     <%- include('components/cantact') %> 
     <%- include('global/footer')%>
   </body>

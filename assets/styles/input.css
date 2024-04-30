@@ -148,6 +148,47 @@
   min-height: 150px;
 }
 
+.my-stack::before{
+  content: '';
+  position: absolute;
+  width: 70px;
+  height: 1px;
+  left: -70px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  @apply bg-secondary-500
+}
+.my-stack::after{
+  content: '';
+  position: absolute;
+  width: 70px;
+  height: 1px;
+  right: -70px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  @apply bg-secondary-500
+}
+
+@media only screen and (max-width: 770px){
+  .my-stack::before{
+    width: 1px;
+    height: 70px;
+    left: 50%;
+    top: -70px;
+    transform: translateX(-50%);
+  }
+  .my-stack::after{
+    width: 1px;
+    height: 70px;
+    left: 50%;
+    top: unset;
+    bottom: -70px;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 @media only screen and (max-width: 576px){
   ul{
     background: transparent;

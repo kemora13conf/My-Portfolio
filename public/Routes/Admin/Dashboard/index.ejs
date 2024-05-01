@@ -38,71 +38,51 @@
 
     <!-- main -->
     <main class="w-full px-16 py-3 flex flex-col gap-3">
-      <div class="w-full flex justify-between items-center">
-        <div class="w-[200px] h-[50px] flex items-end gap-5">
+      <div class="w-full flex justify-between items-center flex-wrap gap-3">
+        <div class="w-[200px] flex items-end gap-5">
           <div
             class="text-primary-500 dark:text-light-500 text-lg font-extrabold"
           >
             Projects
           </div>
         </div>
-        <!-- /projects/add -->
-        <a
-          href="/admin/projects/add"
-          class="border border-secondary-500 px-6 py-2 bg-light-500 dark:bg-primary-600 text-primary-500 dark:text-light-500"
-          >Add Project</a
-        >
-      </div>
-
-      <!-- projects -->
-      <div class="relative overflow-x-auto">
-        <table
-          class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
-        >
-          <thead
-            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+        <!-- view Projects -->
+        <div class="w-fit flex gap-2 flex-wrap">
+          <a
+            href="/admin/projects"
+            class="border border-secondary-500 px-6 py-2 bg-light-500 dark:bg-primary-600 text-primary-500 dark:text-light-500"
+            >View Projects</a
           >
-            <tr>
-              <th scope="col" class="px-6 py-3">Name</th>
-              <th scope="col" class="px-6 py-3">Description</th>
-              <th scope="col" class="px-6 py-3">Image</th>
-              <th scope="col" class="px-6 py-3">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% for( let index = 0; index < Projects.length; index++ ) { %>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th
-                    scope="row"
-                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                    <%= Projects[index].name %>
-                </th>
-                <td class="px-6 py-4"><%= Projects[index].description %></td>
-                <td class="px-6 py-4">
-                    <img
-                    src="/assets/Projects-images/<%= Projects[index].image %>"
-                    alt="<%= Projects[index].name %>"
-                    class="w-[50px] h-[50px] object-contain"
-                    />
-                </td>
-                <td class="px-6 py-4">
-                    <a
-                    href="/admin/projects/edit/<%= Projects[index]._id %>"
-                    class="text-primary-500 dark:text-light-500"
-                    >Edit</a
-                    >
-                    <a
-                    href="/admin/projects/delete/<%= Projects[index]._id %>"
-                    class="text-danger-500 dark:text-danger-500"
-                    >Delete</a
-                    >
-                </td>
-                </tr>
-            <% } %>
-
-          </tbody>
-        </table>
+          <!-- /projects/add -->
+          <a
+            href="/admin/projects/add"
+            class="border border-secondary-500 px-6 py-2 bg-light-500 dark:bg-primary-600 text-primary-500 dark:text-light-500"
+            >Add Project</a
+          >
+        </div>
+      </div>
+      <div class="w-full flex justify-between items-center flex-wrap gap-3">
+        <div class="w-[200px] flex items-end gap-5">
+          <div
+            class="text-primary-500 dark:text-light-500 text-lg font-extrabold"
+          >
+            Technologies
+          </div>
+        </div>
+        <!-- view Technologies -->
+        <div class="w-fit flex gap-2 flex-wrap">
+          <a
+            href="/admin/technologies"
+            class="border border-secondary-500 px-6 py-2 bg-light-500 dark:bg-primary-600 text-primary-500 dark:text-light-500"
+            >View Technologies</a
+          >
+          <!-- /technologies/add -->
+          <a
+            href="/admin/technologies/add"
+            class="border border-secondary-500 px-6 py-2 bg-light-500 dark:bg-primary-600 text-primary-500 dark:text-light-500"
+            >Add Technology</a
+          >
+        </div>
       </div>
     </main>
 

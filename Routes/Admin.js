@@ -4,11 +4,16 @@ import Admin from "../Models/Admin.js";
 import CryptoJS from "crypto-js";
 import Project from "../Models/Project.js";
 import Technology from "../Models/Technology.js";
+import multer from "multer";
+import { validateImageFile, validateProjectAddition } from "../controllers/admin.js";
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 const router = new express.Router();
 
 router.use("/login", async (req, res) => {
-    if(req.session.admin) return res.redirect("/admin/dashboard");
+  if (req.session.admin) return res.redirect("/admin/dashboard");
   // check if theres is no admin in the database then create one
   const db = await Database.getInstance();
   const admins = await Admin.find();
@@ -30,59 +35,77 @@ router.use("/login", async (req, res) => {
         return res.redirect("/admin/dashboard");
       } else {
         return res.render("Routes/Admin/Auth/index", {
-            title: "Login",
-            errors: {
-                password: "Invalid password",
-            }
+          title: "Login",
+          errors: {
+            password: "Invalid password",
+          },
         });
       }
     }
     return res.render("Routes/Admin/Auth/index", {
-        title: "Login",
-        errors: {
-            email: "Invalid email",
-        }
+      title: "Login",
+      errors: {
+        email: "Invalid email",
+      },
     });
   }
-    return res.render("Routes/Admin/Auth/index", { title: "Login", errors: {} });
+  return res.render("Routes/Admin/Auth/index", { title: "Login", errors: {} });
 });
 
 const isAuthenticated = (req, res, next) => {
-    if (!req.session.admin) {
-        return res.redirect("/admin/login");
-    }
-    next();
+  if (!req.session.admin) {
+    return res.redirect("/admin/login");
+  }
+  next();
 };
-    
 
-router.get("/dashboard", isAuthenticated, async (req, res) => {
-  
-    const db = await Database.getInstance();
-    const Projects = await Project.find().populate("technologies");
-  res.render("Routes/Admin/Dashboard/index", { title: "Dashboard", Projects });
+router.get("/dashboard", async (req, res) => {
+  res.render("Routes/Admin/Dashboard/index", { title: "Dashboard" });
 });
 
-router.use("/projects/add", isAuthenticated, async (req, res) => {
+router.get("/projects", async (req, res) => {
+  const db = await Database.getInstance();
+  const Projects = await Project.find().populate("technologies");
+  res.render("Routes/Admin/Dashboard/projects", {
+    title: "Dashboard",
+    Projects,
+  });
+});
+
+router.use(
+  "/projects/add",
+  upload.single("image"),
+  validateProjectAddition,
+  validateImageFile,
+  async (req, res) => {
     if (req.method === "POST") {
-        const { name, description, githubUrl, demoUrl, technologies } = req.body;
-        const project = await Project.create({
-            name,
-            description,
-            githubUrl,
-            demoUrl,
-            technologies: technologies.split(","),
-        });
-        return res.redirect("/admin/dashboard");
+      const { name, description, githubUrl, demoUrl, technologies } = req.body;
+      const image = req.file.buffer.toString("base64");
+      const db = await Database.getInstance();
+      const project = await Project.create({
+        name,
+        description,
+        githubUrl,
+        demoUrl,
+        image,
+        technologies,
+      });
+      return res.redirect("/admin/projects");
     }
     const db = await Database.getInstance();
     const technologies = await Technology.find();
-    return res.render("Routes/Admin/Dashboard/add-project", { title: "Add Project", technologies });
-});
+    return res.render("Routes/Admin/Dashboard/add-project", {
+      title: "Add Project",
+      technologies,
+      form: req.form ? req.form : {},
+      errors: req.errors ? req.errors : {},
+    });
+  }
+);
 
 router.get("/logout", isAuthenticated, async (req, res) => {
-    req.session.destroy();
-    res.redirect("/admin/login");
+  req.session.destroy();
+  res.redirect("/admin/login");
 });
-
 
 export default router;

@@ -43,6 +43,7 @@
         action="/admin/projects/add"
         method="post"
         class="w-full max-w-[500px] mx-auto flex flex-col space-y-4 md:space-y-6"
+        enctype="multipart/form-data"
       >
         <div>
           <label
@@ -53,10 +54,13 @@
           <input
             type="text"
             name="name"
+            value="<% if (form.name) { %> <%= form.name %> <% } %>"
             id="name"
             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            required
           />
+          <p class="text-red-500 text-xs italic">
+            <% if (errors.name) { %> <%= errors.name %> <% } %>
+          </p>
         </div>
         <div>
           <label
@@ -68,8 +72,12 @@
             name="description"
             id="description"
             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            required
-          ></textarea>
+          ><% if (form.description) { %> <%= form.description %> <% } %>
+        </textarea
+          >
+          <p class="text-red-500 text-xs italic">
+            <% if (errors.description) { %> <%= errors.description %> <% } %>
+          </p>
         </div>
         <div>
           <label
@@ -81,9 +89,12 @@
             type="text"
             name="githubUrl"
             id="githubUrl"
+            value="<% if (form.githubUrl) { %> <%= form.githubUrl %> <% } %>"
             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            required
           />
+          <p class="text-red-500 text-xs italic">
+            <% if (errors.githubUrl) { %> <%= errors.githubUrl %> <% } %>
+          </p>
         </div>
         <div>
           <label
@@ -95,8 +106,12 @@
             type="text"
             name="demoUrl"
             id="demoUrl"
+            value="<% if (form.demoUrl) { %> <%= form.demoUrl %> <% } %>"
             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
+          <p class="text-red-500 text-xs italic">
+            <% if (errors.demoUrl) { %> <%= errors.demoUrl %> <% } %>
+          </p>
         </div>
         <div>
           <label
@@ -111,30 +126,62 @@
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <% for( let index = 0; index < technologies.length; index++ ) { %>
-            <option value="<%= technologies[index].name %>">
-              <%= technologies[index].name %>
-            </option>
+              <option
+                value="<%= technologies[index]._id %>"
+                <% if (form.technologies) { %>
+                  <% for( let item = 0; item < form.technologies.length; item++ ) { %>
+                    <% if (form.technologies[item] == technologies[index]._id) { %> selected <% } %>
+                  <% } %>
+                <% } %>
+              >
+                <%= technologies[index].name %>
+              </option>
             <% } %>
           </select>
+          <p class="text-red-500 text-xs italic">
+            <% if (errors.technologies) { %> <%= errors.technologies %> <% } %>
+          </p>
         </div>
         <div class="flex flex-col gap-2">
           <label
             for="image"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            class="block text-sm font-medium text-gray-900 dark:text-white"
             >Image</label
           >
+          <!-- sub label -->
+          <p class="text-gray-500 text-xs italic mb-2">
+            Image should be 288px x 206px
+          </p>
           <input
             type="file"
             name="image"
             id="image"
             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            required
           />
+          <p class="text-red-500 text-xs italic">
+            <% if (errors.image) { %> <%= errors.image %> <% } %>
+          </p>
           <!-- image place holder -->
-          <div class="w-full h-[200px] bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <img src="" alt="image" class="w-full h-full object-cover" />
+          <div class="w-full bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <img src="" id="viewer" alt="image" class="w-full h-[0px] object-contain overflow-hidden" />
           </div>
         </div>
+        <script>
+          const image = document.querySelector("#image");
+          const imagePlaceholder = document.querySelector("#viewer");
+          image.addEventListener("change", (e) => {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.onloadend = () => {
+              imagePlaceholder.src = reader.result;
+              imagePlaceholder.animate([{ height: "0px" }, { height: "200px" }], {
+                duration: 500,
+                fill: "forwards",
+              });
+            };
+            reader.readAsDataURL(file);
+          });
+        </script>
         <div class="w-full flex justify-center items-center">
           <button
             type="submit"

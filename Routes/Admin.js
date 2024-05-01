@@ -59,11 +59,11 @@ const isAuthenticated = (req, res, next) => {
   next();
 };
 
-router.get("/dashboard", async (req, res) => {
+router.get("/dashboard", isAuthenticated, async (req, res) => {
   res.render("Routes/Admin/Dashboard/index", { title: "Dashboard" });
 });
 
-router.get("/projects", async (req, res) => {
+router.get("/projects", isAuthenticated, async (req, res) => {
   const db = await Database.getInstance();
   const Projects = await Project.find().populate("technologies");
   res.render("Routes/Admin/Dashboard/projects", {
@@ -74,6 +74,7 @@ router.get("/projects", async (req, res) => {
 
 router.use(
   "/projects/add",
+  isAuthenticated,
   upload.single("image"),
   validateProjectAddition,
   validateImageFile,

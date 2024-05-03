@@ -5,12 +5,32 @@ import CryptoJS from "crypto-js";
 import Project from "../Models/Project.js";
 import Technology from "../Models/Technology.js";
 import multer from "multer";
-import { validateImageFile, validateProjectAddition } from "../controllers/admin.js";
+import { addProject, addTechnology, validateImageFile, validateProjectAddition } from "../controllers/admin.js";
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 const router = new express.Router();
+
+router.param("projectId", async (req, res, next, projectId) => {
+  try {
+    const project = await Project.findById(projectId);
+    req.project = project;
+    next();
+  } catch (er) {
+    res.redirect("/admin/dashboard");
+  }
+});
+
+router.param("technologyId", async (req, res, next, technologyId) => {
+  try {
+    const technology = await Technology.findById(technologyId);
+    req.technology = technology;
+    next()
+  } catch (er) {
+    res.redirect("/admin/dashboard");
+  }
+});
 
 router.use("/login", async (req, res) => {
   if (req.session.admin) return res.redirect("/admin/dashboard");
@@ -60,15 +80,29 @@ const isAuthenticated = (req, res, next) => {
 };
 
 router.get("/dashboard", isAuthenticated, async (req, res) => {
-  res.render("Routes/Admin/Dashboard/index", { title: "Dashboard" });
+  res.render("Routes/Admin/Dashboard/index", {
+    title: "Dashboard",
+    location: "Dashboard",
+  });
 });
 
 router.get("/projects", isAuthenticated, async (req, res) => {
   const db = await Database.getInstance();
   const Projects = await Project.find().populate("technologies");
   res.render("Routes/Admin/Dashboard/projects", {
-    title: "Dashboard",
+    title: "Projects",
+    location: "Dashboard / Projects",
     Projects,
+  });
+});
+
+router.get("/technologies", isAuthenticated, async (req, res) => {
+  const db = await Database.getInstance();
+  const Technologies = await Technology.find();
+  res.render("Routes/Admin/Dashboard/technologies", {
+    title: "Technologies",
+    location: "Dashboard / Technologies ",
+    Technologies,
   });
 });
 
@@ -78,31 +112,39 @@ router.use(
   upload.single("image"),
   validateProjectAddition,
   validateImageFile,
-  async (req, res) => {
-    if (req.method === "POST") {
-      const { name, description, githubUrl, demoUrl, technologies } = req.body;
-      const image = req.file.buffer.toString("base64");
-      const db = await Database.getInstance();
-      const project = await Project.create({
-        name,
-        description,
-        githubUrl,
-        demoUrl,
-        image,
-        technologies,
-      });
-      return res.redirect("/admin/projects");
-    }
-    const db = await Database.getInstance();
-    const technologies = await Technology.find();
-    return res.render("Routes/Admin/Dashboard/add-project", {
-      title: "Add Project",
-      technologies,
-      form: req.form ? req.form : {},
-      errors: req.errors ? req.errors : {},
-    });
-  }
+  addProject
 );
+
+router.use(
+  "/technologies/add",
+  isAuthenticated,
+  upload.single("image"),
+  addTechnology
+);
+
+router.get("/projects/delete/:projectId", isAuthenticated, async (req, res) => {
+  try {
+    await Project.findByIdAndRemove(req.project._id);
+    res.redirect("/admin/projects");
+  } catch (err) {
+    console.log(err);
+    return res.redirect("/admin/dashboard");
+  }
+});
+
+router.get(
+  "/technologies/delete/:technologyId",
+  isAuthenticated,
+  async (req, res) => {
+    try {
+      await Technology.findByIdAndRemove(req.technology._id)
+      res.redirect('/admin/technologies')
+    } catch (err) {
+      console.log(err)
+      return res.redirect('/admin/dashboard')
+    }
+  }
+)
 
 router.get("/logout", isAuthenticated, async (req, res) => {
   req.session.destroy();

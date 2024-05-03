@@ -11,14 +11,14 @@
           <div
             class="text-primary-500 dark:text-light-500 text-lg font-extrabold"
           >
-            Projects
+            Technologies
           </div>
         </div>
-        <!-- /projects/add -->
+        <!-- /Technologies/add -->
         <a
-          href="/admin/projects/add"
+          href="/admin/technologies/add"
           class="border border-secondary-500 px-6 py-2 bg-light-500 dark:bg-primary-600 text-primary-500 dark:text-light-500"
-          >Add Project</a
+          >Add Technology</a
         >
       </div>
 
@@ -32,44 +32,41 @@
           >
             <tr>
               <th scope="col" class="px-6 py-3">Name</th>
-              <th scope="col" class="px-6 py-3">Description</th>
-              <th scope="col" class="px-6 py-3">Image</th>
+              <th scope="col" class="px-6 py-3">logo</th>
               <th scope="col" class="px-6 py-3">Action</th>
             </tr>
           </thead>
           <tbody>
-            <% for( let index = 0; index < Projects.length; index++ ) { %>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th
-                    scope="row"
-                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                    <%= Projects[index].name %>
-                </th>
-                <td class="px-6 py-4"><%= Projects[index].description %></td>
-                <td class="px-6 py-4">
-                    <img
-                    src="/assets/Projects-images/<%= Projects[index].image %>"
-                    alt="<%= Projects[index].name %>"
-                    class="w-[50px] h-[50px] object-contain"
-                    />
-                </td>
-                <td class="px-6 py-4">
-                    <!-- <a
-                    href="/admin/projects/edit/<%= Projects[index]._id %>"
-                    class="text-primary-500 dark:text-light-500"
-                    >Edit</a
-                    > -->
-                    <a
-                    href="/admin/projects/delete/<%= Projects[index]._id %>"
-                    class="text-danger-500 dark:text-danger-500 flex gap-2 items-center"
+            <% for( let index = 0; index < Technologies.length; index++ ) { %>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <th
+                scope="row"
+                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              >
+                <%= Technologies[index].name %>
+              </th>
+              <td class="px-6 py-4">
+                <img
+                  src="/assets/Technlogies-images/<%= Technologies[index].logo %>"
+                  alt="<%= Technologies[index].name %>"
+                  class="h-[25px] object-contain"
+                />
+              </td>
+              <td class="px-6 py-4">
+                <!-- <a
+                  href="/admin/technologies/edit/<%= Technologies[index]._id %>"
+                  class="text-primary-500 dark:text-light-500"
+                  >Edit</a
+                > -->
+                <a
+                  href="/admin/technologies/delete/<%= Technologies[index]._id %>"
+                  class="text-danger-500 dark:text-danger-500 flex gap-2 items-center"
                   >
-                    <i class="fas fa-trash"></i> Delete
-                  </a>
-                </td>
-                </tr>
+                  <i class="fas fa-trash"></i> Delete
+                </a>
+              </td>
+            </tr>
             <% } %>
-
           </tbody>
         </table>
       </div>

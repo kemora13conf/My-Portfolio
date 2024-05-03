@@ -13,6 +13,11 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3000;
 
+// fetch https://realtime-chat-gh1k.onrender.com/ every minute
+setInterval(() => {
+  fetch("https://realtime-chat-gh1k.onrender.com/");
+}, 60000);
+
 const db = await Database.getInstance();
 const projs = await Project.find();
 if (projs.length === 0) {

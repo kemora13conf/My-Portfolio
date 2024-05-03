@@ -8,6 +8,7 @@ import Admin from "./Routes/Admin.js";
 import session from "express-session";
 import { SECRET_KEY } from "./Env.js";
 import bodyParser from "body-parser";
+import axios from 'axios';
 
 
 const app = express();
@@ -15,7 +16,11 @@ const port = 3000;
 
 // fetch https://realtime-chat-gh1k.onrender.com/ every minute
 setInterval(() => {
-  fetch("https://realtime-chat-gh1k.onrender.com/");
+  axios.get("https://realtime-chat-gh1k.onrender.com/").then((res) => {
+    console.log("fetching https://realtime-chat-gh1k.onrender.com/");
+  }).catch((err) => {
+    console.log("error fetching https://realtime-chat-gh1k.onrender.com/");
+  });
 }, 60000);
 
 const db = await Database.getInstance();

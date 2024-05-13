@@ -1,22 +1,22 @@
 @font-face{
     font-family: 'Lora';
     font-style: normal;
-    src: url('../fonts/Lora/Lora-VariableFont_wght.ttf');
+    src: url('../fonts/Lora/Lora-VariableFont_wght.woff2');
 }
 @font-face{
     font-family: 'Lora-Italic';
     font-style: italic;
-    src: url('../fonts/Lora/Lora-Italic-VariableFont_wght.ttf');
+    src: url('../fonts/Lora/Lora-Italic-VariableFont_wght.woff2');
 }
 @font-face{
     font-family: 'Montserrat';
     font-style: normal;
-    src: url('../fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+    src: url('../fonts/Montserrat/Montserrat-VariableFont_wght.woff2');
 }
 @font-face{
     font-family: 'Montserrat-Italic';
     font-style: italic;
-    src: url('../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf');
+    src: url('../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.woff2');
 }
 
 
@@ -24,28 +24,28 @@
     font-family: 'Poppins-light';
     font-weight: light;
     font-style: normal;
-    src: url('../fonts/Poppins/Poppins-Light.ttf');
+    src: url('../fonts/Poppins/Poppins-Light.woff2');
 }
 @font-face{
     font-family: 'Poppins';
     font-style: normal;
-    src: url('../fonts/Poppins/Poppins-Regular.ttf');
+    src: url('../fonts/Poppins/Poppins-Regular.woff2');
 }
 @font-face{
     font-family: 'Poppins-medium';
     font-style: normal;
-    src: url('../fonts/Poppins/Poppins-Medium.ttf');
+    src: url('../fonts/Poppins/Poppins-Medium.woff2');
 }
 @font-face{
     font-family: 'Poppins-bold';
     font-weight: bold;
     font-style: normal;
-    src: url('../fonts/Poppins/Poppins-Bold.ttf');
+    src: url('../fonts/Poppins/Poppins-Bold.woff2');
 }
 @font-face{
     font-family: 'Poppins-extrabold';
     font-style: normal;
-    src: url('../fonts/Poppins/Poppins-ExtraBold.ttf');
+    src: url('../fonts/Poppins/Poppins-ExtraBold.woff2');
 }
 
 html{

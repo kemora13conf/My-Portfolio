@@ -12,7 +12,7 @@ import axios from 'axios';
 
 
 const app = express();
-const port = 4000;
+const port = 3301;
 
 // fetch https://realtime-chat-gh1k.onrender.com/ every minute
 setInterval(() => {
